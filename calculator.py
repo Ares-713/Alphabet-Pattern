@@ -16,6 +16,9 @@ def flr(num1, num2):
 def exp(num1, num2):
     return num1 ** num2
 
+def mod(num1, num2):
+    return num1 % num2
+
 def calc(string = input("Enter equation to evaluate: ")):
     sign_list = []
     num_list = []
@@ -69,6 +72,11 @@ def calc(string = input("Enter equation to evaluate: ")):
             j2 -= 1
         elif symbl_list[j2] == "/":
             num[j2] = div(num[j2], num[j2+1])
+            del num[j2+1]
+            del symbl_list[j2]
+            j2 -= 1
+        elif symbl_list[j2] == "%":
+            num[j2] = mod(num[j2], num[j2+1])
             del num[j2+1]
             del symbl_list[j2]
             j2 -= 1
